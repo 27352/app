@@ -29,10 +29,10 @@
         })
 
         .then(serviceWorkerRegistration => {
-            serviceWorkerRegistration.pushManager.subscribe().then(pushSubscription => {
-                console.log(pushSubscription.subscriptionId);
-                console.log(pushSubscription.endpoint);
-            });
+            // serviceWorkerRegistration.pushManager.subscribe().then(pushSubscription => {
+            //     console.log(pushSubscription.subscriptionId);
+            //     console.log(pushSubscription.endpoint);
+            // });
         })
         
         .catch(reason => {
