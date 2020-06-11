@@ -16,6 +16,10 @@ self.addEventListener('install', e => {
     );
 });
 
+self.addEventListener('activate', (event) => {
+    console.log('activate handler:', event);
+});
+
 /* Serve cached content when offline */
 self.addEventListener('fetch', e => {
     e.respondWith(
