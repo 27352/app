@@ -28,6 +28,8 @@
             scope: './'
         }).then(reg => {
             console.log('scope', reg.scope);
+        }).catch(reason => {
+            console.log(reason);
         });
 </script>
 </html>
