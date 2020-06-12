@@ -6,9 +6,9 @@ var filesToCache = [
     'js/main.js'
 ];
 
-if (workbox.navigationPreload.isSupported()) {
-    workbox.navigationPreload.enable();
-}
+// if (workbox.navigationPreload.isSupported()) {
+//     workbox.navigationPreload.enable();
+// }
 
 /* Start the service worker and cache all of the app's content */
 self.addEventListener('install', e => {
