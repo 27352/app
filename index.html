@@ -17,26 +17,11 @@
     <meta name="apple-mobile-web-app-title" content="Hello Vtg">
     <meta name="msapplication-TileImage" content="images/hello-icon-144.png">
     <meta name="msapplication-TileColor" content="#FFFFFF">
+    <script src="./js/main.js"></script>
 </head>
 <body class="fullscreen">
     <div class="container">
         <h1 class="title">Hello Vtg!</h1>
     </div>
 </body>
-<script>
-    navigator.serviceWorker && navigator.serviceWorker.register('sw.js', {
-            scope: './'
-        })
-
-        .then(serviceWorkerRegistration => {
-            // serviceWorkerRegistration.pushManager.subscribe().then(pushSubscription => {
-            //     console.log(pushSubscription.subscriptionId);
-            //     console.log(pushSubscription.endpoint);
-            // });
-        })
-        
-        .catch(reason => {
-            console.log(reason);
-        });
-</script>
 </html>
