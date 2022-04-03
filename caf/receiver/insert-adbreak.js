@@ -4,7 +4,7 @@ class AdBreak {
         request.media.breakClips = [{
             id: 'AdClip',
             title: 'Test Ad',
-            posterUrl: posterUrl,
+            posterUrl: 'https://www.gstatic.com/webp/gallery/1.jpg',
             contentId: 'video-640x360.mp4',
             contentType: 'video/mp4',
             duration: 13,
