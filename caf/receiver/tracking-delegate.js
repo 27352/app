@@ -4,7 +4,7 @@ class TrackingDelegate {
         new vtg.caf.CafConnector(this);
     }
 
-    getResourceInfo() {
+    getResourceInfo(castEvent) {
         return {
             category: 'the-genre',
             cdn: 'Fastly',
@@ -43,7 +43,7 @@ class TrackingDelegate {
             adBreakPosition: 1,
             adBreakDuration: 13,
             playhead: 0
-        }
+        };
     }
 
     getAdInfo(castEvent) {
@@ -54,7 +54,15 @@ class TrackingDelegate {
             adPosition: 1,
             adDuration: 13,
             playhead: 0
-        }
+        };
+    }
+
+    getPlayerInfo(castEvent) {
+        return {
+            isFullscreen: false,
+            volume: 5,
+            muted: false
+        };
     }
 
     onNotify(castEvent) {
