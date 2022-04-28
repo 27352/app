@@ -19,6 +19,7 @@
     <script type="text/javascript" src="tracking-delegate.js"></script>
     <script type="text/javascript">
         const context = cast.framework.CastReceiverContext.getInstance();
+        let delegate;
 
         /* Set up Ad Breaks and Tracking on LOAD */
         context.getPlayerManager().setMessageInterceptor(
@@ -27,7 +28,11 @@
                 console.log('[MessageType.LOAD] Setting up', request);
 
                 (new AdBreak()).insertAdBreak(request);
-                (new TrackingDelegate()).start();
+
+                if (!delegate) {
+                    delegate = new TrackingDelegate();
+                    delegate.start();
+                }
 
                 return request;
             }
