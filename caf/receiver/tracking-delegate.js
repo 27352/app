@@ -66,7 +66,7 @@ class TrackingDelegate {
     }
 
     onNotify(castEvent) {
-        console.log('[delegate] onNotify', castEvent.type);
+        // console.log('[delegate] onNotify', castEvent.type);
     }
 
 }
