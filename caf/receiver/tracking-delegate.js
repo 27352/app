@@ -1,10 +1,14 @@
 class TrackingDelegate {
 
+    offset = 0;
+
     start() {
         new vtg.caf.CafConnector(this);
     }
 
     getResourceInfo(castEvent) {
+        this.offset++;
+
         return {
             category: 'the-genre',
             cdn: 'Fastly',
@@ -32,7 +36,7 @@ class TrackingDelegate {
             streamType: 'VOD',
             systemDevice: 'CAF',
             userCountry: 'us',
-            videoTitle: 'the-video-title',
+            videoTitle: 'the-video-title-' + this.offset.toString(),
             visitorId: '134587672435987'
         };
     }
