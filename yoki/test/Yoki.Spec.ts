@@ -17,7 +17,6 @@ describe('Yoki Tests', () => {
         const mock: any = {
             signal: () => {}
         };
-        
 
         const spy = jest.spyOn(mock, 'signal');
 
