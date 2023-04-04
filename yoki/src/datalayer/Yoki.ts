@@ -1,11 +1,12 @@
 import { IDictionary } from '../interface/IDictionary';
 import { ISignals } from '../interface/ISignals';
+import { ITimelineEntry } from '../interface/ITimelineEntry';
 
 export class Yoki {
 
-    store: IDictionary[] = [];
     signal: ISignals = {};
     data: IDictionary = {};
+    timeline: ITimelineEntry[] = [];
 
     on(name: string, fn: Function): void {
         if (typeof fn !== 'function') {
@@ -28,9 +29,17 @@ export class Yoki {
     }
 
     update(eventName: string, eventData: IDictionary): void {
-        eventData.eventName = eventName;
-        eventData.timestamp = (new Date()).getTime();
+        const eventOrder = this.timeline.length + 1;
 
+        // Record the event on the timeline
+        this.timeline.push({
+            eventData: eventData,
+            eventName: eventName,
+            eventOrder: eventOrder,
+            timestamp: (new Date()).getTime()
+        });
+
+        // Update the data snapshot
         Object.keys(eventData).forEach((key) => {
             const value = eventData[key];
 
@@ -38,8 +47,6 @@ export class Yoki {
                 this.data[key] = value;
             }
         });
-
-        this.store.push(eventData);
 
         this.emit('update', eventData);
         this.emit(eventName, eventData);
@@ -51,7 +58,7 @@ export class Yoki {
 
     clear(): void {
         this.data = {};
-        this.store = [];
+        this.timeline = [];
     }
 
     isDefined(s: string): boolean {

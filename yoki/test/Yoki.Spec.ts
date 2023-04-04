@@ -32,11 +32,11 @@ describe('Yoki Tests', () => {
         expect(yoki.data.id).toEqual(data.id);
     });
 
-    it('update should create the event info', () => {
-        yoki.update('testEvent', data);
-        expect(yoki.data.timestamp).toBeDefined();
-        expect(yoki.data.eventName).toEqual('testEvent');
-    });
+    // it('update should create the event info', () => {
+    //     yoki.update('testEvent', data);
+    //     expect(yoki.data.timestamp).toBeDefined();
+    //     expect(yoki.data.eventName).toEqual('testEvent');
+    // });
 
     it('snapshopt() should return the data', () => {
         yoki.update('testEvent', data);
